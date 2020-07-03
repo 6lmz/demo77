@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>我的</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href="{% url 'front:index3' id %}">首页</a></li>
+  <li class="layui-nav-item "><a href="{% url 'front:information3' id %}">个人信息</a></li>
+  <li class="layui-nav-item layui-this"><a href="{% url 'front:trainInformation' id %}">车次信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:travellerInformation' id %}">旅客购票信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:count' id %}">统计信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:other' id %}">公告</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+<div style="width:1300px;margin:0 auto; ">
+
+                 <form class="layui-form" action="{% url 'front:trainInformation' id %}" method="post" style="width:350px;height:500px;position:absolute;top:100px;left:120px;background-color:#fff;">
+<div style="margin: 20px 50px;width:400px;border-bottom-style: solid;border-color: #3ab9f4;text-align: center;front-size:60px;">添加车次</div>
+                     <div style="display: inline;">
+                    {% csrf_token %}
+    <div class="layui-form-item" style="margin:5px 0;">
+		                <label class="layui-form-label">车次</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="tno" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+    <div class="layui-form" >
+  		<div class="layui-form-item" style="margin:5px 0;">
+    		<div class="layui-inline">
+      			<label class="layui-form-label">日期</label>
+      			<div class="layui-input-inline">
+        			<input type="text" name="tdata" class="layui-input" id="test29"  style="width: 200px;">
+      			</div>
+    		</div>
+    	</div>
+	</div>
+                    <div class="layui-form-item" style="margin:5px 0;">
+		                <label class="layui-form-label">出发城市</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="startCity" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+
+                     <div class="layui-form-item" style="margin:5px 0;">
+		                <label class="layui-form-label">到达城市</label>
+                        <div class="layui-input-block" >
+                             <input type="text" name="arrCity" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" style="width:200px;">
+                        </div>
+                     </div>
+                    <div class="layui-form-item" style="margin:5px 0;">
+		                <label class="layui-form-label">出发时间</label>
+                        <div class="layui-input-block" >
+                            <input type="text" name="startTime" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin:5px 0;">
+                        <label class="layui-form-label">到达时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="arrTime" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="margin:5px 0;">
+                        <label class="layui-form-label">座位数</label>
+                        <div class="layui-input-inline">
+                            <input type="tel" name="seatSum" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item" style="margin:5px 0;">
+                        <label class="layui-form-label">车票余量</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="ticketStill" lay-verify="pass" placeholder="" autocomplete="off" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="margin:5px 0;">
+                        <label class="layui-form-label">已购票数</label>
+                        <div class="layui-input-inline">
+                            <input type="tel" name="ticketBuy" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width:200px;">
+                        </div>
+                    </div>
+                     <div class="layui-inline" style="margin:5px 0;">
+                          <label class="layui-form-label">价格</label>
+                          <div class="layui-input-inline">
+                                <input type="tel" name="price" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width:200px;">
+                          </div>
+                     </div>
+
+
+                    <div class="layui-form-item">
+                         <div class="layui-input-block">
+                                <button type="submit" class="layui-btn" value="注册" lay-filter="formDemo">添加信息</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                         </div>
+                    </div>
+</div>
+
+                    </form>
+
+
+
+
+
+
+</div>
+
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+<script>
+
+//轮播图
+
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,height:'600px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  })
+});
+
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+
+//日期
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //墨绿主题
+  laydate.render({
+    elem: '#test29'
+    ,theme: 'molv'
+  });
+});
+
+//面板
+
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+</script>
+</body>
+</html>

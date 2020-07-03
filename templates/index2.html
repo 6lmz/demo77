@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>我的</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item layui-this"><a href='{% url 'front:index2' id %}'>首页</a></li>
+  <li class="layui-nav-item "><a href='{% url 'front:information' id %}'>个人信息</a></li>
+  <li class="layui-nav-item"><a href='{% url 'front:history'  id %}'>我的行程</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+
+<!--轮播图-->
+
+ <div class="layui-carousel" id="test1" style=" margin: 0px auto;">
+  <div carousel-item>
+    <div><img src="/static/img/lunbo1.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo2.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo3.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo4.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo5.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo6.png" style="height:600px;width:1600px;"></div>
+  </div>
+</div>
+<!--车票查询表单-->
+
+<form class="layui-form" action="" method="post" style="width:500px;height:300px;position:absolute;top:200px;left:300px;background-color:#fff;">
+{#	<div style="margin:20px 50px;font-size:20px; width:400px;border-bottom-style:solid;border-color:#3ab9f4;text-align：center；">车票查询</div>#}
+    {% csrf_token %}
+<div style="margin: 20px 50px;front-size:20px;width:400px;border-bottom-style: solid;border-color: #3ab9f4;text-align: center;">车票查询</div>
+	<div class="layui-form-item" style="margin:20px;">
+   	 	<label class="layui-form-label">出发城市</label>
+    	<div class="layui-input-block"  style="width:200px;height:20px;">
+			<select name="startcity" lay-verify="" lay-search >
+	 			<option value="" selected></option>
+  				<option value="成都">成都</option>
+  				<option value="上海">上海</option>
+  				<option value="北京" >北京</option>
+				<option value="武汉">武汉</option>
+			</select>
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="margin:20px;">
+    	<label class="layui-form-label">到达城市</label>
+    	<div class="layui-input-block"  style="width:200px;height:20px;">
+			<select name="arrcity" lay-verify="" lay-search >
+	 			<option value="" selected></option>
+  				<option value="成都">成都</option>
+  				<option value="上海">上海</option>
+  				<option value="北京" >北京</option>
+				<option value="武汉">武汉</option>
+			</select>
+    	</div>
+  	</div>
+
+	<div class="layui-form">
+  		<div class="layui-form-item">
+    		<div class="layui-inline">
+      			<label class="layui-form-label">日期</label>
+      			<div class="layui-input-inline">
+        			<input type="text" name="tdata" class="layui-input" id="test29" placeholder="yyyy-MM-dd">
+      			</div>
+    		</div>
+    	</div>
+	</div>
+
+ 	<div class="layui-form-item">
+    	<div class="layui-input-block">
+      		<button class="layui-btn" name="提交"  type="submit"  lay-filter="formDemo">立即提交</button>
+      		<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    	</div>
+  	</div>
+
+</form>
+
+<div style="display:inline-block;margin:20px 150px;">
+
+<div style="width:500px;margin:20px;display:inline-block;">
+
+<fieldset class="layui-elem-field">
+  <legend style="font-weight:500;">最新公告</legend>
+  <div class="layui-field-box">
+
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;"><a>{{ a }}</a></blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ b }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ c }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ d }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ e }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ f }}</blockquote>
+
+  </div>
+
+</fieldset>
+
+</div>
+
+<div style="width:500px;margin:20px;display:inline-block;">
+<fieldset class="layui-elem-field">
+  <legend  style="font-weight:500;">常见问题</legend>
+  <div class="layui-field-box">
+       <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ g }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ h }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ i }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ j }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ k }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ l }}</blockquote>
+
+  </div>
+</fieldset>
+  </div>
+</div>
+
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+<script>
+
+//轮播图
+
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,height:'600px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  })
+});
+
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+
+//日期
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //墨绿主题
+  laydate.render({
+    elem: '#test29'
+    ,theme: 'molv'
+  });
+});
+
+//面板
+
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+</script>
+</body>
+</html>

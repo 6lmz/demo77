@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href="{% url 'front:index3' id %}">首页</a></li>
+  <li class="layui-nav-item "><a href="{% url 'front:information3' id %}">个人信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:trainInformation' id %}">车次信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:travellerInformation' id %}">旅客购票信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:count' id %}">统计信息</a></li>
+  <li class="layui-nav-item layui-this"><a href="{% url 'front:other' id %}">公告</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+<h1 style="width:1000px;margin: 30px 100px;color: #4E5465;">添加新公告</h1>
+<form class="layui-form" action="" method="post">
+    {% csrf_token %}
+  <div class="layui-form-item" >
+
+    <label class="layui-form-label">标题</label>
+    <div class="layui-input-block" style="margin: 10px;">
+      <input type="text" name="title" required style="width: 1000px;" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+<div class="layui-form-item layui-form-text" >
+    <label class="layui-form-label">内容</label>
+    <div class="layui-input-block" style="margin: 10px;">
+      <textarea name="desc" placeholder="请输入内容" style="width: 1000px;" class="layui-textarea"></textarea>
+    </div>
+  </div>
+       <div class="layui-form-item" >
+    <div class="layui-input-block">
+      <button class="layui-btn" type="submit" lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+  </div>
+</form>
+<div style="width:500px;margin:20px;display:inline-block;">
+
+<fieldset class="layui-elem-field">
+  <legend style="font-weight:500;">公告</legend>
+  <div class="layui-field-box">
+{%for t in data.title%}
+
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;"><a>{{ t }}</a></blockquote>
+   {%endfor%}
+
+  </div>
+
+</fieldset>
+</div>
+</div>
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+<script>
+
+//轮播图
+
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,height:'600px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  })
+});
+
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+
+//日期
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //墨绿主题
+  laydate.render({
+    elem: '#test29'
+    ,theme: 'molv'
+  });
+});
+
+//面板
+
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href="{% url 'front:index3' id %}">首页</a></li>
+  <li class="layui-nav-item "><a href="{% url 'front:information3' id %}">个人信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:trainInformation' id %}">车次信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:travellerInformation' id %}">旅客购票信息</a></li>
+  <li class="layui-nav-item layui-this"><a href="{% url 'front:count' id %}">统计信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:other' id %}">公告</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+    <div style="margin: 0 auto;width: 700px;">
+<div id="main" style="width: 600px;height:400px;"></div>
+    <div id="year" style="width: 600px;height:400px;"></div>
+</div>
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+
+    <script src="/static/js/echarts.min.js"></script>
+<script>
+   var myChart = echarts.init(document.getElementById('main'));
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '每月人数统计(/千万人)'
+        },
+        tooltip: {},
+        legend: {},
+        toolbox: {},
+        xAxis: [{
+          data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        }],
+        yAxis: { },
+        series: [{
+          name: '2019',
+          type: 'bar',
+             color:'#009688',
+          data: [30, 35, 24, 15, 14, 20, 21,20,21,25,14,20]
+        },
+       ]
+      };
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+        var myChart = echarts.init(document.getElementById('year'));
+      // 指定图表的配置项和数据
+      var option2 = {
+        title: {
+          text: '近六年年人数统计(/亿人)'
+        },
+        tooltip: {},
+        legend: {},
+        toolbox: {},
+        xAxis: [{
+          data: ['2013年','2014年','2015年','2016年','2017年','2018年']
+        }],
+        yAxis: { },
+        series: [{
+          name: '2019',
+          type: 'bar',
+             color:'#b97a56',
+          data: [20.75,23.23,24.95,27.73,30.38,33.17]
+        },
+       ]
+      };
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option2);
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+
+
+{% block form-group %}
+
+{% endblock %}
+
+{#<div style="display:inline-block;margin:20px 150px;">#}
+{##}
+{#<div style="width:500px;margin:20px;display:inline-block;">#}
+{#<fieldset class="layui-elem-field">#}
+{#  <legend style="font-weight:500;">最新公告</legend>#}
+{#  <div class="layui-field-box">#}
+{#  	<blockquote class="layui-elem-quote" style="border-color:#0b93d2;">后补购票操作说明</blockquote>#}
+{#   	<blockquote class="layui-elem-quote" style="border-color:#0b93d2;">新增列车D123</blockquote>#}
+{#    <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">春节列购票说明</blockquote>#}
+{#    <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">列车K11更改路线</blockquote>#}
+{#    <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">旅客行李放置提示</blockquote>#}
+{#  </div>#}
+{##}
+{#</fieldset>#}
+</div>
+
+
+
+
+
+</div>
+    <script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+  </div>
+</script>
+
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+<script>
+
+//轮播图
+
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,height:'600px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  })
+});
+
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+
+    return false;
+  });
+});
+
+//日期
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //墨绿主题
+  laydate.render({
+    elem: '#test29'
+    ,theme: 'molv'
+  });
+});
+  {#layui.use('layer', function(){ //独立版的layer无需执行这一句#}
+  {#var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句#}
+  {##}
+  {#//触发事件#}
+  {#    var active = {#}
+  {#  setTop: function(){#}
+  {#    var that = this;#}
+  {#    //多窗口模式，层叠置顶#}
+  {#    layer.open({#}
+  {#      type: 2 //此处以iframe举例#}
+  {#      ,title: '当你选择该窗体时，即会在最顶端'#}
+  {#      ,area: ['390px', '260px']#}
+  {#      ,shade: 0#}
+  {#      ,maxmin: true#}
+  {#var active = {#}
+  {#  setTop: function(){#}
+  {#    var that = this;#}
+  {#    offset: function(othis){#}
+  {#    var type = othis.data('type')#}
+  {#    ,text = othis.text();#}
+  {##}
+  {#    layer.open({#}
+  {#      type: 1#}
+  {#      ,offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset#}
+  {#      ,id: 'layerDemo'+type //防止重复弹出#}
+  {#      ,content: '<div style="padding: 20px 100px;">'+ text +'</div>'#}
+  {#      ,btn: '关闭全部'#}
+  {#      ,btnAlign: 'c' //按钮居中#}
+  {#      ,shade: 0 //不显示遮罩#}
+  {#      ,yes: function(){#}
+  {#        layer.closeAll();#}
+  {#      }#}
+  {#    });#}
+  {#  }#}
+
+</script>
+</body>
+</html>

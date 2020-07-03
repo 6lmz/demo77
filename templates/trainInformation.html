@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>车次信息</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href="{% url 'front:index3' id %}">首页</a></li>
+  <li class="layui-nav-item "><a href="{% url 'front:information3' id %}">个人信息</a></li>
+  <li class="layui-nav-item layui-this"><a href="{% url 'front:trainInformation' id %}">车次信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:travellerInformation' id %}">旅客购票信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:count' id %}">统计信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:other' id %}">公告</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+   <div style="width: 1300px;margin: 0 auto;">
+  <form action="{% url 'front:select_traininfo' id %}" method="get">
+           <input placeholder="日期" name="tdata" id="tdata">
+      <input placeholder="车次" name="tno" id="tno">
+        <input placeholder="出发城市" name="startcity" id="startcity">
+        <input placeholder="到达城市" name="arrcity" id="arrcity">
+            <input type="submit" class="layui-btn" value="搜索">
+       <a href="{% url 'front:addtrain' id %}" class="layui-btn layui-btn-warm">
+            <i class="layui-icon">&#xe654;</i> 添加
+        </a>
+        </form>
+
+        {# 显示所有学生模块 #}
+        <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+            <th>id</th>
+            <th>日期</th>
+            <th>车次</th>
+            <th>出发城市</th>
+            <th>到达城市</th>
+            <th>出发时间</th>
+            <th>到达时间</th>
+            <th>座位总数</th>
+            <th>车票余量</th>
+            <th>已购票数</th>
+            <th>价格（元）</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for train in data%}
+            <tr>
+            <td>{{ train.id}}</td>
+               <td>{{ train.tdata}}</td>
+                <td>{{train.tno}}</td>
+                <td>{{train.startCity}}</td>
+            <td>{{train.arrCity}}</td>
+                <td>{{train.startTime}}</td>
+                <td>{{train.arrTime}}</td>
+                <td>{{train.seatSum}}</td>
+
+            <td>{{train.ticketStill}}</td>
+                <td>{{train.ticketBuy}}</td>
+            <td>{{train.price}}</td>
+                <td>
+
+                    <a href="{% url 'front:updatatrain' train.id id %}" class="layui-btn layui-btn-normal">
+                        <i class="layui-icon">&#xe642;</i>修改
+                    </a>
+                </td>
+       <td>
+                   <a href="{% url 'front:deletetrain' train.id  id%}" class="layui-btn layui-btn-danger">
+
+                        <i class="layui-icon">&#xe640;</i>删除
+               </button>
+                    </a>
+
+                </td>
+
+            </tr>
+        {%endfor%}
+      </tbody>
+        </table>
+
+</div>
+
+
+
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+
+<script>
+
+
+
+
+        //data
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //墨绿主题
+            laydate.render({
+                elem: '#test29'
+                , theme: 'molv'
+            });
+        });
+
+
+layui.use('element', function(){
+  var element = layui.element;
+});
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+
+
+
+
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title>登录</title>#}
+{# <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">#}
+{#</head>#}
+{#<body >#}
+{#	<!--导航栏-->#}
+{##}
+{#<ul class="layui-nav layui-bg-blue" >#}
+{#  <li class="layui-nav-item "><a href="index.html">首页</a></li>#}
+{# <li class="layui-nav-item layui-this"><a href="denglu.html">登录</a></li>  #}
+{#  <li class="layui-nav-item"><a href="register.html">注册</a></li>  #}
+{#</ul>#}
+{##}
+{##}
+{#<!--轮播图-->#}
+{##}
+{# <div class="layui-carousel" id="test1" style=" margin: 0px auto;">#}
+{#  <div carousel-item>#}
+{#    <div><img src="/static/img/lunbo1.png" style="height:600px;width:1600px;"></div>#}
+{#    <div><img src="/static/img/lunbo2.png" style="height:600px;width:1600px;"></div>#}
+{#    <div><img src="/static/img/lunbo3.png" style="height:600px;width:1600px;"></div>#}
+{#    <div><img src="/static/img/lunbo4.png" style="height:600px;width:1600px;"></div>#}
+{#    <div><img src="/static/img/lunbo5.png" style="height:600px;width:1600px;"></div>#}
+{#    <div><img src="/static/img/lunbo6.png" style="height:600px;width:1600px;"></div>#}
+{#  </div>#}
+{#</div>#}
+
+{% extends 'index.html' %}
+{% block form-group %}
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href='{% url 'front:index' %}'>首页</a></li>
+  <li class="layui-nav-item layui-this"><a href='{% url 'front:denglu'%}'>登录</a></li>
+  <li class="layui-nav-item"><a href='{% url 'front:register'%}'>注册</a></li>
+
+</ul>
+
+<!--轮播图-->
+
+ <div class="layui-carousel" id="test1" style=" margin: 0px auto;">
+  <div carousel-item>
+    <div><img src="/static/img/lunbo1.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo2.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo3.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo4.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo5.png" style="height:600px;width:1600px;"></div>
+    <div><img src="/static/img/lunbo6.png" style="height:600px;width:1600px;"></div>
+  </div>
+</div>
+
+<form class="layui-form"  method="post" style="width:500px;height:300px;position:absolute;top:200px;left:300px;background-color:#fff;">
+	<div style="margin:20px 50px;font-size:30px; width:400px;border-bottom-style:solid;border-color:#3ab9f4;text-align：center；font-color:#3ab9f4">登录</div>
+ {% csrf_token %}
+<div class="layui-form-item" style="margin:30px 0;">
+
+		 <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block" >
+      <input type="text" name="user" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input" style="width:200px;">
+    </div>
+</div>
+
+    <div class="layui-form-item" style="margin:30px 0;">
+     <label class="layui-form-label">密码</label>
+    <div class="layui-input-inline">
+      <input type="password" name="passwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width:200px;">
+    </div>
+    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div></div>
+
+
+ <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button type="submit" class="layui-btn" value="登录" lay-filter="demo1" style="background-color:#3ab9f4;">立即登录</button>
+      <button  class="layui-btn layui-btn-primary"><a href='{% url 'front:register'%}'>注册</a></button>
+    </div>
+  </div>
+
+	</form>
+
+<div style="width:500px;margin:20px;display:inline-block;">
+
+<fieldset class="layui-elem-field">
+  <legend style="font-weight:500;">最新公告</legend>
+  <div class="layui-field-box">
+
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ a }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ b }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ c }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ d }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ e }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ f }}</blockquote>
+
+  </div>
+
+</fieldset>
+
+</div>
+
+<div style="width:500px;margin:20px;display:inline-block;">
+<fieldset class="layui-elem-field">
+  <legend  style="font-weight:500;">常见问题</legend>
+  <div class="layui-field-box">
+       <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ g }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ h }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ i }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ j }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ k }}</blockquote>
+      <blockquote class="layui-elem-quote" style="border-color:#0b93d2;">{{ l }}</blockquote>
+
+  </div>
+</fieldset>
+  </div>
+
+{% endblock %}
+
+
+{#<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>#}
+{#<script>#}
+{##}
+{#//轮播图#}
+{##}
+{#layui.use('carousel', function(){#}
+{#  var carousel = layui.carousel;#}
+{#  carousel.render({#}
+{#    elem: '#test1'#}
+{#    ,width: '100%' //设置容器宽度#}
+{#    ,height:'600px'#}
+{#    ,arrow: 'always' //始终显示箭头#}
+{#    //,anim: 'updown' //切换动画方式#}
+{#  })#}
+
+{##}
+{##}
+{##}
+{#</script>#}
+{#</body>#}
+{#</html>#}

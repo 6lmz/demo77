@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+    <div style="width: 1300px;margin: 0 auto;">
+  <form action="{% url 'front:findpost' %}" method="get">
+      <input placeholder="日期" name="tdata" id="tdata">
+        <input placeholder="出发城市" name="startcity" id="startcity">
+        <input placeholder="到达城市" name="arrcity" id="arrcity">
+            <input type="submit" class="layui-btn" value="搜索">
+        </form>
+        <table class="layui-table" id="mytable">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+            <th >日期</th>
+            <th>车次</th>
+            <th>出发城市</th>
+            <th>到达城市</th>
+            <th>出发时间</th>
+            <th>到达时间</th>
+            <th>剩余座位数</th>
+            <th>价格（元）</th>
+            <th>操作</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {%for train in data%}
+            <tr>
+                <td >{{ train.tdata}}</td>
+                <td>{{train.tno}}</td>
+                <td>{{train.startCity}}</td>
+            <td>{{train.arrCity}}</td>
+                <td>{{train.startTime}}</td>
+                <td>{{train.arrTime}}</td>
+            <td>{{train.ticketStill}}</td>
+            <td>{{train.price}}</td>
+
+{#                <td>#}
+{#                    <a href="{% url 'front:tankuang' %}" class="layui-btn layui-btn-normal">#}
+{#                        <i class="layui-icon">&#xe657;</i>购买#}
+{#                    </a>#}
+{#                </td>#}
+
+ <td><div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;"><button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">购买</button>
+ </div></td>
+            </tr>
+        {%endfor%}
+      </tbody>
+        </table>
+</div>
+
+
+
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+
+<script >
+    layui.use('form', function(){
+  var form = layui.form;
+
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+
+    return false;
+  });
+});
+
+ layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+  //触发事件
+  var active = {
+    setTop: function(){
+      var that = this;
+    }
+    ,offset: function(othis){
+      var type = othis.data('type')
+      {#,text = othis.text();#}
+text='请先登录!'
+      layer.open({
+        type: 1
+        ,offset: type
+        ,id: 'layerDemo'+type //防止重复弹出
+        ,content: '<div style="padding: 20px 100px;">'+ text +'</div>'
+        ,btn: '关闭'
+        ,btnAlign: 'c' //按钮居中
+        ,shade: 0 //不显示遮罩
+        ,yes: function(){
+          layer.closeAll();
+        }
+      });
+    }
+  };
+
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+

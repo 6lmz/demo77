@@ -1,0 +1,30 @@
+
+	<!--导航栏-->
+{% extends 'index.html' %}
+{% block form-group %}
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href='{% url 'front:index2' id %}'>首页</a></li>
+  <li class="layui-nav-item layui-this"><a href='{% url 'front:information' id %}'>个人信息</a></li>
+  <li class="layui-nav-item"><a href='{% url 'front:history' id %}'>我的行程</a></li>
+     <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+
+<div style="width:800px;margin:40px auto;">
+<fieldset class="layui-elem-field" style="border-style:solid;border-color:#1e9fff;border-width: 5px; ">
+  <legend  style="font-size:40px;">个人信息</legend>
+    <div class="layui-field-box" style="front-size:40px;">
+{#  <div class="layui-field-box" style="font-size：40px;">#}
+  		<img src="/static/img/laba.png" style="width:80px;height:80px;">欢迎
+  		<p style="font-size: 20px;margin: 30px;color:#0b9981;">用户名：{{ uname }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">姓名：{{ rname }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">性别：{{ sex }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">身份证号：{{ identity  }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">电话：{{ phone }}</p>
+
+
+  </div>  
+</fieldset>
+  </div>
+</div>
+
+{% endblock %}

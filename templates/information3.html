@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+ <link rel="stylesheet" href="/static/layui-v2.5.4/layui/css/layui.css">
+</head>
+<body >
+	<!--导航栏-->
+
+<ul class="layui-nav layui-bg-blue" >
+  <li class="layui-nav-item "><a href="{% url 'front:index3' id %}">首页</a></li>
+  <li class="layui-nav-item layui-this"><a href="{% url 'front:information3' id %}">个人信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:trainInformation' id %}">车次信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:travellerInformation' id %}">旅客购票信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:count' id %}">统计信息</a></li>
+  <li class="layui-nav-item"><a href="{% url 'front:other' id %}">公告</a></li>
+    <li class="layui-nav-item"><a href='{% url 'front:index' %}'>{{ uname }}|退出</a></li>
+</ul>
+
+<div style="width:800px;margin:40px auto;">
+<fieldset class="layui-elem-field" style="border-style:solid;border-color:#1e9fff;border-width: 3px; ">
+  <legend  style="font-size:40px;">个人信息</legend>
+  <div class="layui-field-box " >
+  		<p style="font-size: 20px;margin: 30px;color:#0b9981;">用户名：{{ uname }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">姓名：{{ rname }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">性别：{{ sex }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">身份证号：{{ identity }}</p>
+   		<p style="font-size: 20px;margin: 30px;color:#0b9981;">电话：{{ phone }}</p>
+  </div>  
+</fieldset>
+  </div>
+
+
+
+<script src="/static/layui-v2.5.4/layui/layui.js" charset="utf-8"></script>
+<script>
+
+//轮播图
+
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,height:'600px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  })
+});
+
+//表单
+
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+
+//日期
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //墨绿主题
+  laydate.render({
+    elem: '#test29'
+    ,theme: 'molv'
+  });
+});
+
+//面板
+
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+
+
+
+//面板
+
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+</script>
+</body>
+</html>

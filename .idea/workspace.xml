@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9f5f09ea-7a9a-4614-b314-c2bb7cc92137" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UB0YmltFZIiNv0QpYapzyx93bZ" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\刘明珠\Desktop\python\demo77\static" />
+      <recent name="C:\Users\刘明珠\Desktop\python\demo77\static\js" />
+      <recent name="C:\Users\刘明珠\Desktop\python\demo77\static\img" />
+      <recent name="C:\Users\刘明珠\Desktop\python\demo77\templates" />
+      <recent name="C:\Users\刘明珠\Desktop\python\demo77\front" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="demo77" type="Python.DjangoServer" factoryName="Django server">
+      <module name="demo77" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="demo77.settings" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\刘明珠\Desktop\python\demo77\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/front/index" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f5f09ea-7a9a-4614-b314-c2bb7cc92137" name="Default Changelist" comment="" />
+      <created>1574814730945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574814730945</updated>
+      <workItem from="1574814743997" duration="8670000" />
+      <workItem from="1574834871336" duration="13602000" />
+      <workItem from="1575001995865" duration="13293000" />
+      <workItem from="1575358876845" duration="9243000" />
+      <workItem from="1575371548515" duration="22674000" />
+      <workItem from="1575815694659" duration="3816000" />
+      <workItem from="1575877982078" duration="7419000" />
+      <workItem from="1575988829462" duration="2582000" />
+      <workItem from="1576054649945" duration="17036000" />
+      <workItem from="1576246891019" duration="81016000" />
+      <workItem from="1576478360064" duration="17698000" />
+      <workItem from="1576563803496" duration="7490000" />
+      <workItem from="1576640739302" duration="11236000" />
+      <workItem from="1576769640220" duration="36049000" />
+      <workItem from="1576956989232" duration="13215000" />
+      <workItem from="1577019564448" duration="504000" />
+      <workItem from="1577062368961" duration="5354000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
